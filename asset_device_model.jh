@@ -1,0 +1,111 @@
+
+
+
+
+/**
+ * Asset entity.
+ */
+entity AssetDeviceModel {	
+    AssetId String,
+    AssetName String,
+    protocolSupported String,
+    status String
+
+    
+}
+/*
+  
+*/
+entity AssetDeviceProperty {	
+    tagId String,
+    tagName String,
+    description String,
+    uom String,
+    controlledTag Boolean,
+    pollInterval Long,
+    properyConfig Blob
+}
+/**
+ * Device entity.
+ */
+entity Device {
+	deviceName String,
+    deviceType String,
+    model Long,
+    description String
+}
+
+entity TagMaster {
+	tagId String,
+    tagName String,    
+    description String
+}
+
+/** 
+* For device Template creation  */
+entity Template{
+	templateName String,
+    description String,
+	protocolSupported String	
+}
+
+entity Property {
+	uom String,
+    controlledTag Boolean,	
+    pollInterval Long    
+}
+
+entity PropertyModbus {
+	uom String,
+    controlledTag Boolean,	
+	register Long,
+    slaveId Long,
+    count Long,
+    mask String,
+    pollInterval Long        
+}
+
+
+
+relationship OneToOne {
+	Template{device(id)} to Device	 ,
+    
+    Property{tag} to TagMaster,
+    Property{templateId} to Template,
+    
+    PropertyModbus{tag} to TagMaster,    
+    PropertyModbus{templateId} to Template,
+   
+    AssetDeviceModel{device(id)} to Device, 
+    AssetDeviceModel{template(id)} to Template, 
+    
+    AssetDeviceProperty{template(id)} to Template
+    AssetDeviceProperty{asset(id)} to AssetDeviceModel
+}
+
+relationship OneToMany {
+	Template to PropertyModbus{propertiesModbus},
+	Template to Property{properties}
+    
+    //Device to Template{templates}
+    AssetDeviceModel to AssetDeviceProperty
+}
+
+
+
+
+
+
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+// Use Data Transfert Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
