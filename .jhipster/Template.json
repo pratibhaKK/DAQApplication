@@ -1,0 +1,51 @@
+{
+  "name": "Template",
+  "fields": [
+    {
+      "fieldName": "templateName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "protocolSupported",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "device",
+      "otherEntityRelationshipName": "template",
+      "relationshipName": "device",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "propertyConfigModbus",
+      "otherEntityRelationshipName": "propertiesModbus",
+      "relationshipName": "propertyConfigModbus"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "property",
+      "otherEntityRelationshipName": "properties",
+      "relationshipName": "property"
+    }
+  ],
+  "changelogDate": "20200601065738",
+  "javadoc": "For device Template creation",
+  "entityTableName": "template",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

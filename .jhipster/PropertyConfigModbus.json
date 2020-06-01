@@ -1,0 +1,69 @@
+{
+  "name": "PropertyConfigModbus",
+  "fields": [
+    {
+      "fieldName": "uom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "controlledTag",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "register",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "slaveId",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "count",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "mask",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "pollInterval",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tagMaster",
+      "otherEntityRelationshipName": "propertyConfigModbus",
+      "relationshipName": "tag",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "template",
+      "otherEntityRelationshipName": "propertyConfigModbus",
+      "relationshipName": "templateId",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "template",
+      "otherEntityRelationshipName": "propertyConfigModbus",
+      "relationshipName": "propertiesModbus",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200601065938",
+  "entityTableName": "property_config_modbus",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

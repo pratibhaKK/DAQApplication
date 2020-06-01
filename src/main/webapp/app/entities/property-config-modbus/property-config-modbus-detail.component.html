@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="propertyConfigModbus">
+            <h2><span jhiTranslate="daqApplicationApp.propertyConfigModbus.detail.title">Property Config Modbus</span> {{ propertyConfigModbus.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.uom">Uom</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.uom }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.controlledTag">Controlled Tag</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.controlledTag }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.register">Register</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.register }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.slaveId">Slave Id</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.slaveId }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.count">Count</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.count }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.mask">Mask</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.mask }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.pollInterval">Poll Interval</span></dt>
+                <dd>
+                    <span>{{ propertyConfigModbus.pollInterval }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.tag">Tag</span></dt>
+                <dd>
+                    <div *ngIf="propertyConfigModbus.tag">
+                        <a [routerLink]="['/tag-master', propertyConfigModbus.tag?.id, 'view']">{{ propertyConfigModbus.tag?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.templateId">Template Id</span></dt>
+                <dd>
+                    <div *ngIf="propertyConfigModbus.templateId">
+                        <a [routerLink]="['/template', propertyConfigModbus.templateId?.id, 'view']">{{ propertyConfigModbus.templateId?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.propertyConfigModbus.propertiesModbus">Properties Modbus</span></dt>
+                <dd>
+                    <div *ngIf="propertyConfigModbus.propertiesModbus">
+                        <a [routerLink]="['/template', propertyConfigModbus.propertiesModbus?.id, 'view']">{{ propertyConfigModbus.propertiesModbus?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/property-config-modbus', propertyConfigModbus.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+{
+  "name": "Property",
+  "fields": [
+    {
+      "fieldName": "uom",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "controlledTag",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "pollInterval",
+      "fieldType": "Long"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "tagMaster",
+      "otherEntityRelationshipName": "property",
+      "relationshipName": "tagId",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "template",
+      "otherEntityRelationshipName": "property",
+      "relationshipName": "templateId",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "template",
+      "otherEntityRelationshipName": "property",
+      "relationshipName": "properties",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20200601065838",
+  "entityTableName": "property",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}
