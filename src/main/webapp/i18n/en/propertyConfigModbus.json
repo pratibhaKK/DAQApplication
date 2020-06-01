@@ -1,0 +1,31 @@
+{
+  "daqApplicationApp": {
+    "propertyConfigModbus": {
+      "home": {
+        "title": "Property Config Modbuses",
+        "createLabel": "Create a new Property Config Modbus",
+        "createOrEditLabel": "Create or edit a Property Config Modbus",
+        "notFound": "No Property Config Modbuses found"
+      },
+      "created": "A new Property Config Modbus is created with identifier {{ param }}",
+      "updated": "A Property Config Modbus is updated with identifier {{ param }}",
+      "deleted": "A Property Config Modbus is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Property Config Modbus {{ id }}?"
+      },
+      "detail": {
+        "title": "Property Config Modbus"
+      },
+      "uom": "Uom",
+      "controlledTag": "Controlled Tag",
+      "register": "Register",
+      "slaveId": "Slave Id",
+      "count": "Count",
+      "mask": "Mask",
+      "pollInterval": "Poll Interval",
+      "tag": "Tag",
+      "templateId": "Template Id",
+      "propertiesModbus": "Properties Modbus"
+    }
+  }
+}

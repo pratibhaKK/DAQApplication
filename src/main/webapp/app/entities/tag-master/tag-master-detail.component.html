@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="tagMaster">
+            <h2><span jhiTranslate="daqApplicationApp.tagMaster.detail.title">Tag Master</span> {{ tagMaster.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="daqApplicationApp.tagMaster.tagId">Tag Id</span></dt>
+                <dd>
+                    <span>{{ tagMaster.tagId }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.tagMaster.tagName">Tag Name</span></dt>
+                <dd>
+                    <span>{{ tagMaster.tagName }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.tagMaster.description">Description</span></dt>
+                <dd>
+                    <span>{{ tagMaster.description }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/tag-master', tagMaster.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="daqApplicationApp.tagMaster.home.title">Tag Masters</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-tag-master" [routerLink]="['/tag-master/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="daqApplicationApp.tagMaster.home.createLabel">
+            Create a new Tag Master
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="tagMasters?.length === 0">
+        <span jhiTranslate="daqApplicationApp.tagMaster.home.notFound">No tagMasters found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="tagMasters && tagMasters.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="daqApplicationApp.tagMaster.tagId">Tag Id</span></th>
+                    <th scope="col" ><span jhiTranslate="daqApplicationApp.tagMaster.tagName">Tag Name</span></th>
+                    <th scope="col" ><span jhiTranslate="daqApplicationApp.tagMaster.description">Description</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let tagMaster of tagMasters ;trackBy: trackId">
+                    <td><a [routerLink]="['/tag-master', tagMaster.id, 'view']">{{ tagMaster.id }}</a></td>
+                    <td>{{ tagMaster.tagId }}</td>
+                    <td>{{ tagMaster.tagName }}</td>
+                    <td>{{ tagMaster.description }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/tag-master', tagMaster.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/tag-master', tagMaster.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(tagMaster)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

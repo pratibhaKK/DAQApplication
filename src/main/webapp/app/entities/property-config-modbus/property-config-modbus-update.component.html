@@ -1,0 +1,92 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-property-config-modbus-heading" jhiTranslate="daqApplicationApp.propertyConfigModbus.home.createOrEditLabel">Create or edit a Property Config Modbus</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.uom" for="field_uom">Uom</label>
+                    <input type="text" class="form-control" name="uom" id="field_uom"
+                           formControlName="uom"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.controlledTag" for="field_controlledTag">Controlled Tag</label>
+                    <input type="checkbox" class="form-control" name="controlledTag" id="field_controlledTag"
+                           formControlName="controlledTag"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.register" for="field_register">Register</label>
+                    <input type="number" class="form-control" name="register" id="field_register"
+                           formControlName="register"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.slaveId" for="field_slaveId">Slave Id</label>
+                    <input type="number" class="form-control" name="slaveId" id="field_slaveId"
+                           formControlName="slaveId"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.count" for="field_count">Count</label>
+                    <input type="number" class="form-control" name="count" id="field_count"
+                           formControlName="count"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.mask" for="field_mask">Mask</label>
+                    <input type="text" class="form-control" name="mask" id="field_mask"
+                           formControlName="mask"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.pollInterval" for="field_pollInterval">Poll Interval</label>
+                    <input type="number" class="form-control" name="pollInterval" id="field_pollInterval"
+                           formControlName="pollInterval"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.tag" for="field_tag">Tag</label>
+                    <select class="form-control" id="field_tag" name="tag" formControlName="tag">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="tagMasterOption.id === editForm.get('tag')!.value?.id ? editForm.get('tag')!.value : tagMasterOption" *ngFor="let tagMasterOption of tags; trackBy: trackById">{{ tagMasterOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.templateId" for="field_templateId">Template Id</label>
+                    <select class="form-control" id="field_templateId" name="templateId" formControlName="templateId">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="templateOption.id === editForm.get('templateId')!.value?.id ? editForm.get('templateId')!.value : templateOption" *ngFor="let templateOption of templateids; trackBy: trackById">{{ templateOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="daqApplicationApp.propertyConfigModbus.propertiesModbus" for="field_propertiesModbus">Properties Modbus</label>
+                    <select class="form-control" id="field_propertiesModbus" name="propertiesModbus" formControlName="propertiesModbus">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="templateOption.id === editForm.get('propertiesModbus')!.value?.id ? editForm.get('propertiesModbus')!.value : templateOption" *ngFor="let templateOption of templates; trackBy: trackById">{{ templateOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{
+  "name": "TagMaster",
+  "fields": [
+    {
+      "fieldName": "tagId",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "tagName",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "description",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [],
+  "changelogDate": "20200601065638",
+  "entityTableName": "tag_master",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

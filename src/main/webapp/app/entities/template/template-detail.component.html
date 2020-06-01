@@ -1,0 +1,44 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="template">
+            <h2><span jhiTranslate="daqApplicationApp.template.detail.title">Template</span> {{ template.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="daqApplicationApp.template.templateName">Template Name</span></dt>
+                <dd>
+                    <span>{{ template.templateName }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.template.description">Description</span></dt>
+                <dd>
+                    <span>{{ template.description }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.template.protocolSupported">Protocol Supported</span></dt>
+                <dd>
+                    <span>{{ template.protocolSupported }}</span>
+                </dd>
+                <dt><span jhiTranslate="daqApplicationApp.template.device">Device</span></dt>
+                <dd>
+                    <div *ngIf="template.device">
+                        <a [routerLink]="['/device', template.device?.id, 'view']">{{ template.device?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/template', template.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
